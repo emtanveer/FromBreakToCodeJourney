@@ -1,7 +1,5 @@
 package PracticeTest
 
-import Miscellaneous.printArray
-
 fun main() {
 
     //88. Merge Sorted Array
@@ -22,8 +20,8 @@ fun main() {
 //    print(removeElement(nums, `val`))
 
     //26. Remove Duplicates from Sorted Array
-//    val nums: IntArray = intArrayOf(1, 1, 2)
-//    removeDuplicates(nums)
+    val nums: IntArray = intArrayOf(1, 1, 1, 2, 2, 3)
+    println(removeDuplicates(nums))
 
 }
 
@@ -118,10 +116,26 @@ fun removeElement(nums: IntArray, `val`: Int): Int {
 /**
  * 26. Remove Duplicates from Sorted Array
  */
-//fun removeDuplicates(nums: IntArray): Int {
-//
-//    return 0
-//}
+fun removeDuplicates(nums: IntArray): Int {
+    //1,1,1,2,2,3
+    var k: Int = 0
+    var occurrence: Int = 1
+
+    for (i in nums.indices) {
+        if (i < nums.size - 1 && nums[i] == nums[i + 1]) {
+            occurrence++
+        } else {
+            occurrence = 1
+        }
+
+        if (occurrence <= 2) {
+            nums[k] = nums[i]
+            k++
+        }
+    }
+    return k
+
+}
 
 //endregion
 
